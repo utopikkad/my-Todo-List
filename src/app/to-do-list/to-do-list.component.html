@@ -1,0 +1,21 @@
+<h2>{{ todoList.name }} : </h2>
+<br>
+
+  <div class="input-group">
+    new task : <input #newtodo type="text" [(ngModel)]="newToDo" class="form-control" placeholder="Add Todo...">
+    <span class="input-group-btn">
+      <button id="todo-add" class="btn btn-default" (click)="add()" type="button">Add</button>
+    </span>
+  </div>
+
+<br><br>
+<p *ngFor="let item of todoList.tasks; let i = index">
+  task : <input class="taches" value="{{item.name}}" type="text">
+  <input type="checkbox" [(ngModel)]="item.status">
+  <button id="todo-remove" (click)="remove(i)" type="button" class="btn01 btn-danger">Remove</button>
+</p>
+
+
+
+<!--On peut importer le scope html dans le ts, dans les fonctions add et remove on enleve les arguments dans les fonctions et on rajoute pour newtodo 
+  le newToDo (avec le scope $) défini ici-->
